@@ -59,3 +59,13 @@ def preprocess_data(data=None, target_column=None, save_path=None, file_path=Non
         dump(scaler, save_path)
 
     return X_train, X_test, y_train, y_test
+
+
+if __name__ == "__main__":
+    X_train, X_test, y_train, y_test, df_final = preprocess_data(
+        file_path="bank_customer.csv",
+        target_column="Exited",
+        save_path="scaler_churn.joblib",
+    )
+    # Simpan hasilnya ke file
+    df_final.to_csv("bank_customer_preprocessed.csv", index=False)
