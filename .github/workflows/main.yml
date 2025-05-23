@@ -1,0 +1,37 @@
+name: Preprocessing Dataset
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  preprocessing:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12.7"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas scikit-learn joblib
+
+      - name: Run preprocessing script
+        working-directory: preprocessing
+        run: python automate_Muhammad_Farkhan_Adhitama.py
+
+      - name: Upload preprocessed dataset
+        uses: actions/upload-artifact@v3
+        with:
+          name: preprocessed-dataset
+          path: preprocessing/bank_customer_preprocessed.csv
