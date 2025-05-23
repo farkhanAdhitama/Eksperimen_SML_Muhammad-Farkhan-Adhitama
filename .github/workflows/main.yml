@@ -23,7 +23,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r ../requirements.txt
+          python -m pip install --upgrade pip
+          pip install numpy pandas scikit-learn joblib
 
       - name: Run preprocessing script
         run: |
