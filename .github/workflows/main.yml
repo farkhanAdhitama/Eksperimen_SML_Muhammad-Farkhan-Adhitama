@@ -30,7 +30,8 @@ jobs:
           python automate_Muhammad_Farkhan_Adhitama.py
 
       - name: Upload preprocessed dataset
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: preprocessed-dataset
-          path: bank_customer_preprocessed.csv
+          path: preprocessing/bank_customer_preprocessed.csv
+
