@@ -60,12 +60,14 @@ def preprocess_data(data=None, target_column=None, save_path=None, file_path=Non
 
     return X_train, X_test, y_train, y_test
 
-
 if __name__ == "__main__":
-    X_train, X_test, y_train, y_test, df_final = preprocess_data(
-        file_path="bank_customer.csv",
+    X_train, X_test, y_train, y_test = preprocess_data(
         target_column="Exited",
+        file_path="bank_customer.csv",
         save_path="scaler_churn.joblib",
     )
-    # Simpan hasilnya ke file
+
+    # Simpan hasil data akhir (preprocessed) ke file
+    df_final = pd.concat([X_train, y_train.reset_index(drop=True)], axis=1)
     df_final.to_csv("bank_customer_preprocessed.csv", index=False)
+
