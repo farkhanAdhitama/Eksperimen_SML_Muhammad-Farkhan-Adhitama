@@ -59,11 +59,10 @@ def preprocess_data(data=None, target_column=None, save_path=None, file_path=Non
 if __name__ == "__main__":
     X_train, X_test, y_train, y_test = preprocess_data(
         target_column="Outcome",
-        file_path="../dataset_raw/diabetes.csv",
+        file_path="dataset_raw/diabetes.csv",
     )
 
-# Mengembalikan data yang siap dilatih
-df_final = pd.concat(
-    [X_train.reset_index(drop=True), y_train.reset_index(drop=True)], axis=1
-)
-df_final.to_csv("diabetes_preprocessing.csv", index=False)
+    df_final = pd.concat(
+        [X_train.reset_index(drop=True), y_train.reset_index(drop=True)], axis=1
+    )
+    df_final.to_csv("diabetes_preprocessing.csv", index=False)
