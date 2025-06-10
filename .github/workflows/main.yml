@@ -30,7 +30,7 @@ jobs:
 
       # Step 4: Jalankan script Python untuk preprocessing
       - name: Run preprocessing script
-        run: python preprocess.py
+        run: python preprocessing/preprocess.py
 
       # Step 5: Simpan file hasil preprocessing ke artifact
       - name: Upload processed CSV as artifact
