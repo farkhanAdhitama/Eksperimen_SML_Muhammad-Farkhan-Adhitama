@@ -65,4 +65,4 @@ if __name__ == "__main__":
     df_final = pd.concat(
         [X_train.reset_index(drop=True), y_train.reset_index(drop=True)], axis=1
     )
-    df_final.to_csv("diabetes_preprocessing.csv", index=False)
+    df_final.to_csv("preprocessing/diabetes_preprocessing.csv", index=False)
